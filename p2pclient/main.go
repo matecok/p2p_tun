@@ -45,7 +45,7 @@ func handleLocalTcp(sess *smux.Session, p1 io.ReadWriteCloser, quiet bool) {
 		die := make(chan struct{})
 		go func() {
 			buf := xmitBuf.Get().([]byte)
-			generic.CopyBuffer(dst, src, buf)
+			io.CopyBuffer(dst, src, buf)
 			xmitBuf.Put(buf)
 			close(die)
 		}()
@@ -516,7 +516,7 @@ func handleTargetTcp(addr string, session *smux.Session, quiet bool) {
 				die := make(chan struct{})
 				go func() {
 					buf := xmitBuf.Get().([]byte)
-					generic.CopyBuffer(dst, src, buf)
+					io.CopyBuffer(dst, src, buf)
 					xmitBuf.Put(buf)
 					close(die)
 				}()
