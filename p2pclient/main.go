@@ -5,7 +5,6 @@ import (
 	"crypto/sha1"
 	"encoding/json"
 	"github.com/hikaricai/p2p_tun/kcp-go"
-	"github.com/xtaci/kcptun/generic"
 	"io"
 	"log"
 	"math/rand"
